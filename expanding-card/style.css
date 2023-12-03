@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  flex: 1;
+  position: relative;
+  transition: all 700ms ease-in;
+  margin: 10px;
+  cursor: pointer;
+}
+
+
+.img1 {
+  background-image: url(https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQoB77T2pEgDi5Nvyj5k03cegf3sBL9fEU1qXNx4Q28VFbUsWOJJIw2EbndsNMKL7ckUujR3eCa9vDP1coz_zA);
+}
+.img2 {
+  background-image: url(https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcS-tY6FtmFux57YnjVe1zHPcZk1DrXkwBFAXg3iBVI3dvHkm6mGDzoI9uK39dcPKwEiYzh-arcx4qzgRlaR170);
+}
+.img3 {
+    
+  background-image: url(https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSWfJhjiV4A62sQxmVECFzCxRf48jFn9Z0vUEaHg3m8c_mYuywF2cwziNqBavBWduJcC-CoNwHZ7W41eSYOyWo);
+}
+.img4 {
+  background-image: url(https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg?crop=0.88847xw:1xh;center,top&resize=1200:*);
+}
+.img5 {
+  background-image: url(https://hips.hearstapps.com/hmg-prod/images/large-cat-breed-1553197454.jpg?crop=1xw:0.75xh;center,top&resize=1200:*);
+}
+
+.panel.active{
+    flex: 5;
+}
