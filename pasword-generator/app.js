@@ -1,24 +1,37 @@
 const passContent = document.querySelector(".pass-content")
 const bnt = document.querySelector(".button")
-const upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z"]
-const lowerCase = ["a", "b", "c", "d", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "z"]
-const numberCase = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-const specialCase = ["!", "è", "é", "_", "-", ".", ".", "'", "?", "[", "]"]
+const inputNumber = document.querySelector("#number")
+const checkUpperCase = document.querySelector("#uppercase")
+const checkLowerCase = document.querySelector("#lowercase")
+const checkNumbers = document.querySelector("#numbers")
+const checkSpecial = document.querySelector("#special")
+
+
+//variabili con caratteri disponibili
+let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z"]
+let lowerCase = ["a", "b", "c", "d", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "z"]
+let numberCase = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+let specialCase = ["!", "è", "é", "_", "-", ".", ".", "'", "?", "[", "]"]
+
+//funzione genera password
 let password = []
 function passwordGnerator() {
-    const number = 20
-    // let password = []
+    const number = inputNumber.value
 
-    for (let i = 0; i < number/4; i++) {
-        const indexRandomUpper = Math.round(Math.random() * upperCase.length-1)
-        const indexRandomNumber = Math.round(Math.random() * numberCase.length-1)
-        const indexRandomSpecial = Math.round(Math.random() * specialCase.length-1)
-        const indexRandomLower = Math.round(Math.random() * lowerCase.length-1)
+    for (let i = 0; i < number; i++) {
+        let currentUpperCase = checkUpperCase.checked ? [...upperCase] : []
+        let currentLowerCase = checkLowerCase.checked ? [...lowerCase] : []
+        let currentNumber = checkNumbers.checked ? [...numberCase] : []
+        let currentSpecial = checkSpecial.checked ? [...specialCase] : []
+        const indexRandomUpper = Math.round(Math.random() * currentUpperCase.length - 1)
+        const indexRandomNumber = Math.round(Math.random() * currentNumber.length-1)
+        const indexRandomSpecial = Math.round(Math.random() * currentSpecial.length-1)
+        const indexRandomLower = Math.round(Math.random() * currentLowerCase.length-1)
         
-        password.push(lowerCase[indexRandomLower], upperCase[indexRandomUpper], specialCase[indexRandomSpecial], 
-            numberCase[indexRandomNumber],)
+        password.push(currentLowerCase[indexRandomLower], currentUpperCase[indexRandomUpper], currentSpecial[indexRandomSpecial], 
+            currentNumber[indexRandomNumber],)
     }}
-
+//funzione che rende l'array casuale
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -27,15 +40,16 @@ function shuffleArray(array) {
     
     
 }
-// let passwordString = password.join("")
+
 
 console.log(password);
-
+//DOM
 const p = document.createElement("p")
 bnt.addEventListener("click",()=>{
     passwordGnerator()
     shuffleArray(password)
-    p.textContent=password
+    let passwordString = password.join("").slice(0, inputNumber.value)
+    p.textContent=passwordString
     p.classList.add("p")
     passContent.appendChild(p)
     password=[]

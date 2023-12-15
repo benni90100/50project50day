@@ -51,7 +51,9 @@ i{
     font-size: 1.2rem;
 }
 p{
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+     color: white;
+     font-weight: bolder;
 }
 .button{
     
@@ -80,4 +82,5 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
