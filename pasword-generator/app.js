@@ -5,7 +5,8 @@ const checkUpperCase = document.querySelector("#uppercase")
 const checkLowerCase = document.querySelector("#lowercase")
 const checkNumbers = document.querySelector("#numbers")
 const checkSpecial = document.querySelector("#special")
-
+const copy = document.querySelector(".copy")
+const p = document.createElement("p")
 
 //variabili con caratteri disponibili
 let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z"]
@@ -17,7 +18,6 @@ let specialCase = ["!", "è", "é", "_", "-", ".", ".", "'", "?", "[", "]"]
 let password = []
 function passwordGnerator() {
     const number = inputNumber.value
-
     for (let i = 0; i < number; i++) {
         let currentUpperCase = checkUpperCase.checked ? [...upperCase] : []
         let currentLowerCase = checkLowerCase.checked ? [...lowerCase] : []
@@ -31,20 +31,16 @@ function passwordGnerator() {
         password.push(currentLowerCase[indexRandomLower], currentUpperCase[indexRandomUpper], currentSpecial[indexRandomSpecial], 
             currentNumber[indexRandomNumber],)
     }}
+
 //funzione che rende l'array casuale
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-    
-    
 }
 
-
-console.log(password);
 //DOM
-const p = document.createElement("p")
 bnt.addEventListener("click",()=>{
     passwordGnerator()
     shuffleArray(password)
@@ -53,6 +49,15 @@ bnt.addEventListener("click",()=>{
     p.classList.add("p")
     passContent.appendChild(p)
     password=[]
-    
+    copy.addEventListener("click", () => {
+        navigator.clipboard.writeText(passwordString)
+            .then(() => {
+                alert("password copiata con successo")
+            })
+            .catch(err => {
+                console.error('Errore durante la copia della password:', err);
+            });
+    })    
 })
+
 
