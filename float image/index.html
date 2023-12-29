@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Floating Images</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .float img {
+            position: absolute;
+            animation: floatAnimation 5s infinite linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="float">
+        <img src="path/to/image1.jpg" alt="Image 1">
+        <img src="path/to/image2.jpg" alt="Image 2">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('.float img');
+
+            images.forEach(img => {
+                // Genera un valore casuale per la traslazione iniziale
+                const initialTranslateX = Math.random() * 50; // Modifica se necessario
+                const initialTranslateY = Math.random() * 50; // Modifica se necessario
+
+                img.style.transform = `translate(${initialTranslateX}px, ${initialTranslateY}px)`;
+
+                img.addEventListener('animationiteration', function () {
+                    // Aggiorna dinamicamente il valore di traslazione ogni volta che l'animazione si ripete
+                    const currentTransform = getComputedStyle(img).transform;
+                    const [currentTranslateX, currentTranslateY] = currentTransform.match(/-?\d+/g);
+
+                    // Aggiorna il valore di traslazione in base alla tua logica
+                    const newTranslateX = parseInt(currentTranslateX, 10) + 10; // Modifica se necessario
+                    const newTranslateY = parseInt(currentTranslateY, 10) + 10; // Modifica se necessario
+
+                    img.style.transform = `translate(${newTranslateX}px, ${newTranslateY}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

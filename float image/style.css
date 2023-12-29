@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.float{
+    /* position: relative; */
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+background-image: url(asset/flakes-2.webp);
+/* background-size: 5vh; */
+animation: MOVE-BG 500s linear infinite;
+}
+
+:root{
+    color-scheme: dark;
+}
+body{
+
+}
+html{
+
+}
+
+@keyframes MOVE-BG{
+    from{
+        transform: translateY(0);
+    } 
+    to{
+        transform: translateY(70%);
+    }
+}

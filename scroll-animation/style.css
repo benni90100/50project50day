@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.x-box, .ps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  transition: 1s ease-in-out;
+}
+.x-box{
+  background-image: url(https://github.com/bradtraversy/50projects50days/blob/master/split-landing-page/xbox.jpg?raw=true);
+}
+.ps{
+    
+    background-image: url(https://github.com/bradtraversy/50projects50days/blob/master/split-landing-page/ps.jpg?raw=true);
+    filter: hue-rotate(150deg);
+}
+.ps:hover{
+    width: 100%;
+    transition: 1s ease-in-out;
+}
+.x-box:hover{
+    width: 100%;
+    transition: 1s ease-in-out;
+}
+button{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 2rem;
+    padding: 30px 40px;
+    margin-top: 10px;
+}
+.content1, .content2{
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+}
+
+
+

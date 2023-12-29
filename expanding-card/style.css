@@ -43,6 +43,6 @@
   background-image: url(https://hips.hearstapps.com/hmg-prod/images/large-cat-breed-1553197454.jpg?crop=1xw:0.75xh;center,top&resize=1200:*);
 }
 
-.panel.active{
+.active{
     flex: 5;
 }
